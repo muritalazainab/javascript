@@ -18,7 +18,7 @@ sayHello('Hayzed');
 
 
 const wassup = (surname) => {
-    console.log(`wassup ${surname}`)
+    console.log(`wassup $ {surname}`)
 }
 wassup ('Muritala');
 
@@ -43,7 +43,6 @@ const  tutor = (firstNumber, lastnumber) => {
 }
 const result = tutor(10, 8)
 console.log(result)
-
 
 // nested function
 
@@ -102,6 +101,12 @@ function isprime(number){
     }
     const prime = isprime(3)
     console.log(prime)
+
+
+    function isValidEmail(email){
+        return email.includes('@') ? true : false;
+    }
+    console.log(isValidEmail("bro code"))
 
 
 
