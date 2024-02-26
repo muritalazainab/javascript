@@ -304,3 +304,21 @@ const rewardStudents = overScore.map((student) => {
 rewardStudents.forEach((name) => {
     console.log(`Hi ${name}, u really tired`)
 })
+    //  ARRAY SOME AND EVERY
+
+    const box = [1,2,3,4,5,6,7]
+    console.log(box.some((el) => {return el < 4}))
+    console.log(box.every((fish) => {return fish  < 8}))
+
+
+    // ARRAY REDUCE
+
+    // LOOP through the array and return the sum of the array.It takes two properties:a callback functions and an initial value. the call back function take two parameters which are accumulator and value,
+    
+
+    const boxes = [1,2,3,4,5,6,7,8,9,10]
+
+
+
+
+
