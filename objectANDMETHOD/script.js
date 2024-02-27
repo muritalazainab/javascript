@@ -85,7 +85,7 @@ const employeeInfo = Object.keys(employees)
 console.log(employeeInfo)
 // object.values
 
-// it creates and rerurn an array contain the value of an object
+// it creates and rerurn an array contain the value of an objectb
 const section = {
    id: 1,
     Date: "27 feb 2024",
@@ -108,5 +108,112 @@ const operatingSystemInfo = Object.entries(operatingSystem)
 console.log(operatingSystemInfo)
 
 
+// it prevent modification of existing properties and prevent properties from being added or remove
+
+// ************* freeze ///////////////
+
+const user ={
+    userName: "Bro code",
+    Password:"code",
+}
+const userInfo = Object.freeze(user)
+console.log(userInfo)
+
+userInfo.username = "Soliu"
+console.log(userInfo)
 
 
+// it prevent new properties from being remove or added
+
+// SEAL PROPERTIES 
+
+const user1 = {
+    name: "Bode",
+    Password:"12354",
+}
+const userInfo1 = Object.seal(user1)
+userInfo1.surname = "Sade"
+console.log(userInfo1)
+
+let x
+const persons = {
+name: "Soliu",
+age: 12 ,
+isAdmin: true,
+address: {
+    street: "Babayemi",
+    city:"Lagos State",
+    country: "Nigeria",
+},
+hobbies: ["Music", "Sport"]
+
+}
+// acessing an array inside an object 
+
+x = persons.hobbies[0]
+let y = persons["hobbies"][1];
+console.log(x, y)
+// UPDATING A PROPERTY
+persons.name = "bode"
+console.log(persons )
+
+
+// deleting a property we use delete keyword
+delete persons.address.city
+console.log(persons)
+
+// adding a function to an object with only function
+
+persons.greet = function(){
+    console.log(`Hello, my name is ${this.name}`)
+}
+persons.greet();
+
+// value and reference
+//copying primitive value
+
+// copying numbers
+
+let x1 = 1
+let y1 = x1;
+x1 = 2
+console.log(x1)
+console.log(y1);
+
+// copying Strings
+
+let firstChild = "Aliyat"
+const secondChild = firstChild
+
+firstChild = "Austin";
+console.log(firstChild)
+console.log(secondChild)
+
+// copying complex values
+
+
+const animals = ["dogs", "cats"];
+const otherAnimals = animals
+
+animals.push("Goat");
+console.log(animals === otherAnimals);
+// COPY OBJECT
+const data = {
+    firstName: "Zainab",
+    lastName: "Muritala"
+} 
+
+const otherdata = data
+console.log(otherdata)
+
+// EQUALITY 
+const personOne = {
+   firstName: "Soliu"
+}
+const personTwo = {
+    firstName: "Soliu"
+}
+console.log(personOne === personTwo)
+console.log(personOne.firstName === personTwo.firstName);
+
+ 
