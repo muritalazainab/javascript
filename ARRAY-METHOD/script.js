@@ -314,9 +314,13 @@ rewardStudents.forEach((name) => {
     // ARRAY REDUCE
 
     // LOOP through the array and return the sum of the array.It takes two properties:a callback functions and an initial value. the call back function take two parameters which are accumulator and value,
-    
+
 
     const boxes = [1,2,3,4,5,6,7,8,9,10]
+    const answer = boxes.reduce((accumulator, value) => {
+      return accumulator + value
+    }, 0)
+    console.log(answer)
 
 
 

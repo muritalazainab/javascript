@@ -112,7 +112,7 @@ console.log(operatingSystemInfo)
 
 // ************* freeze ///////////////
 
-const user ={
+const user = {
     userName: "Bro code",
     Password:"code",
 }

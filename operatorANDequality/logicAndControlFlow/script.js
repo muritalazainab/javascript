@@ -19,7 +19,7 @@
 // ""
 // 0
 // null
-// undefined
+// undefined 
 // NaN
 
 // if(true){
@@ -74,7 +74,7 @@ let hour = new Date().getHours();
 
   if(hour >= 11){
     console.log("first period is over")
-  }
+  } 
   else if (hour === 10){
     console.log("its time for lunch")
   }

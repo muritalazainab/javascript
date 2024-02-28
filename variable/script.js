@@ -13,9 +13,13 @@ console.log(message);
 
 const _name$ = 'Al fulaaniy Ileya';
 console.log(_name$);
-console.log
+console.log(message,greeting)
 
-(message,greeting)
+
+
+let day = "night "
+day = "good night" 
+console.log(day)
 
 // classwork
 
