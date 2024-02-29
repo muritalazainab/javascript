@@ -163,8 +163,88 @@ const RectShape = class geometry{
         return this.rectangle()
     }
     rectangle(){
-        return { area: this.breath *   this.length}
+        return  this.breath * this.length
     }
 }
 const $Shape = new RectShape(10, 5)
 console.log($Shape.calculate)
+
+{
+//  const detail1 = {
+//     name: "Class Captain",
+//     age: 540,
+//     isBlack: false
+//  }
+//  const detail2 = {
+//     name: "Baba Oloye",
+//     age: 640,
+//     isBlack: true
+
+//  }
+
+//  const getDetail1 = new detail1()
+//  console.log(getDetail1)
+
+//  class Detail {
+//     constructor(name, age, isPretty) {
+//         this.name = name;
+//         this.age = age;
+//         this.isPretty = isPretty;
+        
+//     }}
+    
+ 
+ }
+//  const array = [detailOne, detailTwo]
+//  const detailOne = new Detail("Bash",12, false)
+// const detailTwo = new Detail("Nafi",10, false)
+// const detailThree = new Detail("Bode",2, true)
+
+// const array1 = [detailOne, detailTwo]
+// array.push(detailThree);
+// array.shift(detailOne);
+// console.log(array);
+
+
+const createPerson = (name, age, isHands) => {
+    // const userSchema = {
+    //     name, age, isHands
+    // }
+    // return userSchema
+
+    return {name, age, isHands}
+}
+
+const personCreated = createPerson("Bode", 45, true);
+console.log(personCreated);
+
+
+//INHERITANCE
+class Animal {
+    alive = true
+
+    isBeautiful = 'This animal is beautiful';
+
+    eat() {
+        console.log(`This ${this.name} can eat`);
+    }
+
+    sleep() {
+        console.log(`This ${this.name} can sleep`);
+    }
+};
+
+class Rabbit extends Animal {
+    name = "Rabbit"
+
+    run() {
+        console.log(`This ${this.name} can run`)
+    }
+}
+
+const rabbit = new Rabbit ()
+console.log(rabbit);
+
+
+
+   
