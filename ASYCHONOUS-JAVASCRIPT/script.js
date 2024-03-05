@@ -15,7 +15,7 @@ const function1 = () => {
 
 const function2 = () => {
   setTimeout(() => console.log("Function 2"), 2000);
-}; H
+}; 
 
 function1();
 
@@ -40,49 +40,49 @@ const User2 = fetchUser1("test", (User2) => {
 
 // CALLBACK HELL
 
-// const fetchUser2 = (userName, callBack) => {
-//   setTimeout(() => {
-//     console.log("Now we have the user");
-//     callBack({userName});
-//   }, 2000);
-// };
+const fetchUser2 = (userName, callBack) => {
+  setTimeout(() => {
+    console.log("Now we have the user");
+    callBack({userName});
+  }, 2000);
+};
+ 
+const fetchUserPhotos = (username, callBack) => {
+  setTimeout(() => {
+    console.log("Now we have the photo");
+    callBack(["photo1", "photo2"]);
+  }, 2000);
+};
+const fetchUserDetails = (userName, callBack) => {
+  setTimeout(() => {
+    console.log("Now we have the photo details");
+    callBack("details");
+  }, 2000);
+};
+const user3 = fetchUser2("Ali", (userName) => {
+  console.log(`Your name is: ${userName}`);
+  fetchUserPhotos(userName, (userphoto) => {
+    console.log(` Your photo are ${userphoto}`);
+    fetchUserDetails(userphoto[0], (details) => {
+      console.log(`Your photo details are ${details}`);
+    });
+  });
+});
 
-// const fetchUserPhotos = (username, callBack) => {
-//   setTimeout(() => {
-//     console.log("Now we have the photo");
-//     callBack(["photo1", "photo2"]);
-//   }, 2000);
-// };
-// const fetchUserDetails = (userName, callBack) => {
-//   setTimeout(() => {
-//     console.log("Now we have the photo details");
-//     callBack("details");
-//   }, 2000);
-// };
-// const user3 = fetchUser2("Ali", (userName) => {
-//   console.log(`Your name is: ${userName}`);
-//   fetchUserPhotos(userName, (userphoto) => {
-//     console.log(` Your photo are ${userphoto}`);
-//     fetchUserDetails(userphoto[0], (details) => {
-//       console.log(`Your photo details are ${details}`);
-//     });
-//   });
-// });
+const user4 = fetchUser2("Ali", (userName) => { 
+  fetchUserPhotos(userName, (userphoto) => { 
+    fetchUserDetails(userphoto[0], (details) =>{ 
+      fetchUserDetails(userphoto[0], (details) =>{ 
+       fetchUserDetails(userphoto[0], (details) => { 
+          fetchUserDetails(userphoto[0], (details) => {
+            console.log(details);
+          });
+        });
+      });
+   });
 
-// const user4 = fetchUser2("Ali", (userName) => { 
-//   fetchUserPhotos(userName, (userphoto) => { 
-//     fetchUserDetails(userphoto[0], (details) =>{ 
-//       fetchUserDetails(userphoto[0], (details) =>{ 
-//        fetchUserDetails(userphoto[0], (details) => { 
-//           fetchUserDetails(userphoto[0], (details) => {
-//             console.log(details);
-//           });
-//         });
-//       });
-//    });
-
-//   });
-// });
+  });
+});
 
 const promise = new Promise((resolve, reject) => {
   setTimeout(() => {
@@ -133,3 +133,132 @@ const getUserPhotosDetails = (photo) => {
   .then((user) => getUserPhotos(user))
   .then((photos) => getUserPhotos(photos))
   .then((details) => console.log(details));
+
+  // ASYNC AND AWAIT
+const myUsers = {
+  userList: []
+}
+
+const myFoolFunc = async () => {
+ const response =  await fetch('https://jsonplaceholder.typicode.com/users');
+const json = await response.json()
+ console.log(json)
+}
+
+// const anotherFn = async () => {
+//   const data = await myFoolFunc()
+//   myUsers.userList = data;
+//   confirm.log(myUsers.userList)
+
+
+// }
+
+
+
+// const getAllUserEmail = async () => {
+//   const response =  await fetch('https://jsonplaceholder.typicode.com/users');
+//  const json = await response.json();
+
+//   const userName = json.map((user) => {
+//     return user.username
+//    })
+//    console.log(userName)
+//  }
+//  getAllUserEmail ();
+
+// myFoolFunc();
+
+// // TRY AND CATCH
+
+// const getData = async () => {
+
+
+// try {
+//   const response =  await fetch('https://jsonplaceholder.typicode.com/users');
+//   const data = await response.json();
+//   return data
+// } catch (error) {
+//   console.log("Error:", error.msg)
+// }
+// }
+// getData()
+// .then((data) => console.log("data:", data)).catch ((error) => console.log ("Error:", error.msg))
+
+// const fetchDataWithErr = async () => {
+//   try {
+//     console.log("Fetching Data...")
+//     const res = await fetch('https://jsonplaceholder.typicode.com/users');
+//     const json = await response.json();
+    
+//     if(!re) {
+//       throw new Error('Failed to fetch data')
+//     }
+
+//     const $data = await res.json();
+//     return $data
+
+//   }catch (error){
+//     console.log('Error:', error.message)
+//   }
+// }
+// fetchDataWithErr()
+// .then(result => {
+//   if (result) {
+//     console.log("Data", result)
+//   }
+// })
+
+
+const fetchAlluserData = async () => {
+  try{
+    const response = await fetch('https://jsonplaceholder.typicode.com/users');
+
+    if(!response.ok) {
+      throw new Error('Not found, will fixed soon')
+    }
+    
+    const userData = await response.json() // assuming data is an array of user
+    const mappedData = userData.map(({username, email, name, address, company}) => {
+      address = address['street'];
+      company = company['name']
+    return {username, email, name, address, company}
+    })
+    console.log(mappedData)
+    
+  }catch (error) {
+    console.log('Error:', error.message)
+  }
+}
+fetchAlluserData();
+
+
+
+// sample2
+
+
+const fetchNestDta = async () => {
+
+  try{
+      console.log("username")
+ const response = await fetch('https://jsonplaceholder.typicode.com/users'); 
+  
+  if(!response.ok){
+      throw new Error("Not found will fixed soon")
+  }
+  const userData = await response.json() 
+  const mappedData = userData.map(({ id, username,email, name,address, phone, website, company}) =>({
+  id, username, email, name, address: {
+      street: address.street,
+  },
+  phone, website, company: {
+      name: company.name
+  }
+      
+}));
+console.log(mappedData)
+  }catch (error){
+      console.log("error:",error.message)
+}   
+}
+  fetchNestDta()
+
