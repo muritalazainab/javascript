@@ -7,7 +7,8 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    outline: 0;
+    border: none;
+    outline: none;
     color: #333;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -96,7 +97,7 @@ form{
 }
 input{
     margin-bottom: 1rem;
-    width: 2rem;
+    width: 20rem;
     padding: 1.5rem;
     font-size: 1.8rem;
     box-shadow: 0 0.4rem 1.4rem 0 rgba(86,185,235,0.5);
